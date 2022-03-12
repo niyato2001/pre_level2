@@ -5,6 +5,8 @@ interface DisplayNumberProps {
 export const DisplayNumber: React.FC<DisplayNumberProps> = ({ count }) => (
   <div className='text-primary-800'>
     <h2>パターン１　count: number</h2>
-    <p>Count: {count}</p>
+    <p>
+      Count: <span className='font-bold'>{count}</span>
+    </p>
   </div>
 );

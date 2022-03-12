@@ -1,15 +1,11 @@
-import { useState } from 'react';
 import { DisplayArray } from '@/component/DisplayArray';
 import { DisplayFunction } from '@/component/DisplayFunction';
 import { DisplayNumber } from '@/component/DisplayNumber';
 import { DisplayObject } from '@/component/DisplayObject';
+import { useCount } from '@/hook/useCount';
 
 const Home: React.FC = () => {
-  const [count, setCount] = useState<number>(0);
-  const countObj = { count };
-  const countList = [count];
-  const countUp = () => setCount((count) => (count += 1));
-
+  const { count, countObj, countList, countUp, objCountUp, listCountUp } = useCount();
   return (
     <main className='mx-auto max-w-lg py-6'>
       <div className='grid gap-y-10'>
@@ -17,7 +13,7 @@ const Home: React.FC = () => {
         <DisplayNumber count={count} />
         <DisplayObject countObj={countObj} />
         <DisplayArray countList={countList} />
-        <DisplayFunction countUp={countUp} />
+        <DisplayFunction countUp={countUp} objCountUp={objCountUp} listCountUp={listCountUp} />
       </div>
     </main>
   );

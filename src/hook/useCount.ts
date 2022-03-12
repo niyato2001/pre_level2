@@ -20,19 +20,23 @@ export const useCount = (): UseCountReturnType => {
   const [countObj, setCountObj] = useState<CountObj>(initCountObj);
   const [countList, setCountList] = useState<number[]>([0]);
 
-  const countUp = useCallback(() => setCount((count) => (count += 1)), []);
+  const countUp = useCallback(() => setCount((prevCount) => (prevCount += 1)), []);
 
   const objCountUp = useCallback((): void => {
-    const newCountObj = { ...countObj };
-    newCountObj.count++;
-    setCountObj(newCountObj);
-  }, [countObj]);
+    setCountObj((prevCountObj) => {
+      const countObj = { ...prevCountObj };
+      countObj.count++;
+      return countObj;
+    });
+  }, []);
 
   const listCountUp = useCallback(() => {
-    const newCountList = [...countList];
-    newCountList[0]++;
-    setCountList(newCountList);
-  }, [countList]);
+    setCountList((prevCountList) => {
+      const countList = [...prevCountList];
+      countList[0]++;
+      return countList;
+    });
+  }, []);
 
   return { count, countObj, countList, countUp, objCountUp, listCountUp };
 };

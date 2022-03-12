@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 interface CountObj {
   count: number;
@@ -20,19 +20,19 @@ export const useCount = (): UseCountReturnType => {
   const [countObj, setCountObj] = useState<CountObj>(initCountObj);
   const [countList, setCountList] = useState<number[]>([0]);
 
-  const countUp = () => setCount((count) => (count += 1));
+  const countUp = useCallback(() => setCount((count) => (count += 1)), []);
 
-  const objCountUp = (): void => {
+  const objCountUp = useCallback((): void => {
     const newCountObj = { ...countObj };
     newCountObj.count++;
     setCountObj(newCountObj);
-  };
+  }, [countObj]);
 
-  const listCountUp = () => {
+  const listCountUp = useCallback(() => {
     const newCountList = [...countList];
     newCountList[0]++;
     setCountList(newCountList);
-  };
+  }, [countList]);
 
   return { count, countObj, countList, countUp, objCountUp, listCountUp };
 };

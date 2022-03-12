@@ -15,6 +15,14 @@ React.memo でコンポーネントをメモ化
 
 ![step1](https://i.gyazo.com/f56cecda3727d1605ccd40efe15a7f01.gif)
 
+## branch: step2
+
+useCallback でアロー関数をメモ化
+オブジェクトや配列を持つ場合は更新用の関数も状態に依存するため関数も更新される。  
+このあたりはもっとうまく実装する方法が存在する可能性があり。ご一報お待ちしています。
+
+![step2](https://i.gyazo.com/5f5e4920226c4b2e000dc6d9a4cc478a.gif)
+
 ## Getting Started
 
 ### パッケージのインストール

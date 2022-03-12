@@ -1,8 +1,10 @@
+import { memo } from 'react';
+
 interface DisplayArrayProps {
   countList: number[];
 }
 
-export const DisplayArray: React.FC<DisplayArrayProps> = ({ countList }) => (
+const DisplayArrayPresenter: React.FC<DisplayArrayProps> = ({ countList }) => (
   <div className='text-primary-800'>
     <h2>パターン３　countList: number[]</h2>
     <p>
@@ -10,3 +12,5 @@ export const DisplayArray: React.FC<DisplayArrayProps> = ({ countList }) => (
     </p>
   </div>
 );
+
+export const DisplayArray = memo(DisplayArrayPresenter);

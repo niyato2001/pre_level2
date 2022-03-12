@@ -1,10 +1,8 @@
-import { memo } from 'react';
-import { useCount } from '@/hook/useCount';
+import { useRecoilValue } from 'recoil';
+import { CountObj, countObjState } from '@/model/count';
 
 interface DisplayObjectProps {
-  countObj: {
-    count: number;
-  };
+  countObj: CountObj;
 }
 
 const DisplayObjectPresenter: React.FC<DisplayObjectProps> = ({ countObj }) => (
@@ -16,9 +14,7 @@ const DisplayObjectPresenter: React.FC<DisplayObjectProps> = ({ countObj }) => (
   </div>
 );
 
-const DisplayObjectContainer: React.FC = () => {
-  const { countObj } = useCount();
+export const DisplayObject: React.FC = () => {
+  const countObj = useRecoilValue(countObjState);
   return <DisplayObjectPresenter countObj={countObj} />;
 };
-
-export const DisplayObject = memo(DisplayObjectContainer);

@@ -32,6 +32,15 @@ Recoil の useCallback 版である useRecoilCallback で setter を囲むも残
 
 ![step3](https://i.gyazo.com/a495afa3d74fd798240ea1b66837b4b9.gif)
 
+## branch: step4
+
+`useCount` には mutation 系だけ集約して、必要な状態の読み込みは各コンポーネントに集約する。  
+Recoil を使う場合は custom hooks と相性が悪い可能性があるため、query と mutation に分離したほうが良いかも。  
+`useCallback` と `memo` は削除しています。  
+custom hooks + Recoil でのベストプラクティスを step5 として教えてもらえると嬉しいです。
+
+![step4](https://i.gyazo.com/6c7f71a9e195ba94dacfaf752b3119ac.gif)
+
 ## Getting Started
 
 ### パッケージのインストール

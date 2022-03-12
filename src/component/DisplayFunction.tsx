@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { useCount } from '@/hook/useCount';
 
 interface DisplayFunctionProps {
@@ -37,12 +36,9 @@ const DisplayFunctionPresenter: React.FC<DisplayFunctionProps> = ({
   </div>
 );
 
-const DisplayFunctionContainer: React.FC = () => {
+export const DisplayFunction: React.FC = () => {
   const { countUp, objCountUp, listCountUp } = useCount();
-
   return (
     <DisplayFunctionPresenter countUp={countUp} objCountUp={objCountUp} listCountUp={listCountUp} />
   );
 };
-
-export const DisplayFunction = memo(DisplayFunctionContainer);

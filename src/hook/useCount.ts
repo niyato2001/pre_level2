@@ -1,37 +1,16 @@
-import { atom, useRecoilState } from 'recoil';
-
-interface CountObj {
-  count: number;
-}
+import { useSetRecoilState } from 'recoil';
+import { countListState, countObjState, countState } from '@/model/count';
 
 type UseCountReturnType = {
-  count: number;
-  countObj: CountObj;
-  countList: number[];
   countUp: () => void;
   objCountUp: () => void;
   listCountUp: () => void;
 };
 
-const countState = atom<number>({
-  key: 'countState',
-  default: 0,
-});
-
-const countObjState = atom<CountObj>({
-  key: 'countObjState',
-  default: { count: 0 },
-});
-
-const countListState = atom<number[]>({
-  key: 'countListState',
-  default: [0],
-});
-
 export const useCount = (): UseCountReturnType => {
-  const [count, setCount] = useRecoilState(countState);
-  const [countObj, setCountObj] = useRecoilState(countObjState);
-  const [countList, setCountList] = useRecoilState(countListState);
+  const setCount = useSetRecoilState(countState);
+  const setCountObj = useSetRecoilState(countObjState);
+  const setCountList = useSetRecoilState(countListState);
 
   const countUp = () => setCount((prevCount) => (prevCount += 1));
 
@@ -49,5 +28,5 @@ export const useCount = (): UseCountReturnType => {
       return countList;
     });
 
-  return { count, countObj, countList, countUp, objCountUp, listCountUp };
+  return { countUp, objCountUp, listCountUp };
 };

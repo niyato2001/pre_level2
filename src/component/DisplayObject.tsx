@@ -1,10 +1,12 @@
+import { memo } from 'react';
+
 interface DisplayObjectProps {
   countObj: {
     count: number;
   };
 }
 
-export const DisplayObject: React.FC<DisplayObjectProps> = ({ countObj }) => (
+const DisplayObjectPresenter: React.FC<DisplayObjectProps> = ({ countObj }) => (
   <div className='text-primary-800'>
     <h2>パターン２　countObj: {'{count: number}'}</h2>
     <p>
@@ -12,3 +14,5 @@ export const DisplayObject: React.FC<DisplayObjectProps> = ({ countObj }) => (
     </p>
   </div>
 );
+
+export const DisplayObject = memo(DisplayObjectPresenter);

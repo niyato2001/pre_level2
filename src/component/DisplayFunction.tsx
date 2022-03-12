@@ -1,10 +1,12 @@
+import { memo } from 'react';
+
 interface DisplayFunctionProps {
   countUp: () => void;
   objCountUp: () => void;
   listCountUp: () => void;
 }
 
-export const DisplayFunction: React.FC<DisplayFunctionProps> = ({
+const DisplayFunctionPresenter: React.FC<DisplayFunctionProps> = ({
   countUp,
   objCountUp,
   listCountUp,
@@ -33,3 +35,5 @@ export const DisplayFunction: React.FC<DisplayFunctionProps> = ({
     </div>
   </div>
 );
+
+export const DisplayFunction = memo(DisplayFunctionPresenter);

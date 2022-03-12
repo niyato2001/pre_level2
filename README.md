@@ -4,9 +4,16 @@ Branch で管理されたステップごとに最適化が進んでいきます�
 
 ## branch: stap0
 
-カウントアップですべての要素がレンダリングされる
+カウントアップですべての要素がレンダリングされる。
 
 ![step0](https://i.gyazo.com/40c73c3d33b9d92c56e6dff8d79c0ea9.gif)
+
+## branch: step1
+
+React.memo でコンポーネントをメモ化  
+アロー関数を持つ DisplayFunction 以外は不要なレンダリングを抑制できている。
+
+![step1](https://i.gyazo.com/f56cecda3727d1605ccd40efe15a7f01.gif)
 
 ## Getting Started
 

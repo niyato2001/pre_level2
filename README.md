@@ -2,10 +2,9 @@
 
 Branch で管理されたステップごとに最適化が進んでいきます。
 
-- branch: stap0
-  - カウントアップですべての要素がレンダリングされる
+## branch: stap0
 
-## スクリーンショット
+カウントアップですべての要素がレンダリングされる
 
 ![step0](https://i.gyazo.com/e77dafe0eac39a6ba02c493beec22cac.gif)
 

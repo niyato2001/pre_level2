@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useCount } from '@/hook/useCount';
 
 interface DisplayObjectProps {
   countObj: {
@@ -15,4 +16,9 @@ const DisplayObjectPresenter: React.FC<DisplayObjectProps> = ({ countObj }) => (
   </div>
 );
 
-export const DisplayObject = memo(DisplayObjectPresenter);
+const DisplayObjectContainer: React.FC = () => {
+  const { countObj } = useCount();
+  return <DisplayObjectPresenter countObj={countObj} />;
+};
+
+export const DisplayObject = memo(DisplayObjectContainer);

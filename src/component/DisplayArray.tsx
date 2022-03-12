@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useCount } from '@/hook/useCount';
 
 interface DisplayArrayProps {
   countList: number[];
@@ -13,4 +14,9 @@ const DisplayArrayPresenter: React.FC<DisplayArrayProps> = ({ countList }) => (
   </div>
 );
 
-export const DisplayArray = memo(DisplayArrayPresenter);
+const DisplayArrayContainer: React.FC = () => {
+  const { countList } = useCount();
+  return <DisplayArrayPresenter countList={countList} />;
+};
+
+export const DisplayArray = memo(DisplayArrayContainer);

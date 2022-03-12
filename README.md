@@ -24,6 +24,14 @@ setter の中で状態の更新処理を書かないと useCallback の第２引
 
 ![step2](https://i.gyazo.com/66b6e9748817a35e68037ee66dac64c3.gif)
 
+## branch: step3
+
+Recoil で状態をグローバルに管理して Props のバケツリレーを減らす。  
+`useCount` の custom hooks にまとめると Atom を Subscribe してしまうため、不要なレンダリングがまた復活してしまっている。  
+Recoil の useCallback 版である useRecoilCallback で setter を囲むも残念ながら不要なレンダリングが残る。
+
+![step3](https://i.gyazo.com/a495afa3d74fd798240ea1b66837b4b9.gif)
+
 ## Getting Started
 
 ### パッケージのインストール

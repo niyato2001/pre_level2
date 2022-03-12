@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { atom, useRecoilState } from 'recoil';
 
 interface CountObj {
   count: number;
@@ -13,30 +13,41 @@ type UseCountReturnType = {
   listCountUp: () => void;
 };
 
+const countState = atom<number>({
+  key: 'countState',
+  default: 0,
+});
+
+const countObjState = atom<CountObj>({
+  key: 'countObjState',
+  default: { count: 0 },
+});
+
+const countListState = atom<number[]>({
+  key: 'countListState',
+  default: [0],
+});
+
 export const useCount = (): UseCountReturnType => {
-  const initCountObj: CountObj = { count: 0 };
+  const [count, setCount] = useRecoilState(countState);
+  const [countObj, setCountObj] = useRecoilState(countObjState);
+  const [countList, setCountList] = useRecoilState(countListState);
 
-  const [count, setCount] = useState<number>(0);
-  const [countObj, setCountObj] = useState<CountObj>(initCountObj);
-  const [countList, setCountList] = useState<number[]>([0]);
+  const countUp = () => setCount((prevCount) => (prevCount += 1));
 
-  const countUp = useCallback(() => setCount((prevCount) => (prevCount += 1)), []);
-
-  const objCountUp = useCallback((): void => {
+  const objCountUp = (): void =>
     setCountObj((prevCountObj) => {
       const countObj = { ...prevCountObj };
       countObj.count++;
       return countObj;
     });
-  }, []);
 
-  const listCountUp = useCallback(() => {
+  const listCountUp = () =>
     setCountList((prevCountList) => {
       const countList = [...prevCountList];
       countList[0]++;
       return countList;
     });
-  }, []);
 
   return { count, countObj, countList, countUp, objCountUp, listCountUp };
 };

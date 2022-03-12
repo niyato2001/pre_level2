@@ -1,3 +1,10 @@
+# Rendering Optimization of React
+
+Branch で管理されたステップごとに最適化が進んでいきます。
+
+- branch: stap0
+  - カウントアップですべての要素がレンダリングされる
+
 ## Getting Started
 
 ### パッケージのインストール

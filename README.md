@@ -5,6 +5,10 @@ Branch で管理されたステップごとに最適化が進んでいきます�
 - branch: stap0
   - カウントアップですべての要素がレンダリングされる
 
+## スクリーンショット
+
+![step0](https://i.gyazo.com/e77dafe0eac39a6ba02c493beec22cac.gif)
+
 ## Getting Started
 
 ### パッケージのインストール

@@ -33,17 +33,17 @@ export const useCount = (): UseCountReturnType => {
   const [countObj, setCountObj] = useRecoilState(countObjState);
   const [countList, setCountList] = useRecoilState(countListState);
 
-  const countUp = () => setCount((prevCount) => (prevCount += 1));
+  const countUp = () => setCount((prevCount: number) => (prevCount += 1));
 
   const objCountUp = (): void =>
-    setCountObj((prevCountObj) => {
+    setCountObj((prevCountObj: CountObj) => {
       const countObj = { ...prevCountObj };
       countObj.count++;
       return countObj;
     });
 
   const listCountUp = () =>
-    setCountList((prevCountList) => {
+    setCountList((prevCountList: number[]) => {
       const countList = [...prevCountList];
       countList[0]++;
       return countList;
